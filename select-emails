@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Get the path to the students list file
+students_list_file="students-list_0333.txt"
+
+# Get the path to the output file
+output_file="student-emails.txt"
+
+# Create a file to store the student emails
+echo "" > $output_file
+
+# Read the students list file line by line
+while read line; do
+
+  # Extract the email address from the line
+  email=$(echo $line | cut -d "," -f 1)
+
+  # Write the email address to the output file
+  echo $email >> $output_file
+done < $students_list_file
+
